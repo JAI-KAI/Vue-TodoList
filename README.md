@@ -4,4 +4,4 @@
 - Vite  
 - option API    
 - Tailwind CSS  
-### GitHub Pages: GitHub Pages: https://jai-kai.github.io/Vue-TodoList/
+### GitHub Pages: https://jai-kai.github.io/Vue-TodoList/
