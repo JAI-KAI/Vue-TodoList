@@ -29,20 +29,34 @@ export default {
     TodoInput,
     TodoList
   },
+  mounted() {
+    if(localStorage.getItem("todos") !== null) {
+      this.todos = JSON.parse(localStorage.getItem("todos"))
+    } 
+    if(localStorage.getItem("completedTodos") !== null) {
+      this.completedTodos = JSON.parse(localStorage.getItem("completedTodos"))
+    } 
+  },
   methods: {
     handleAddTodo(newTodo) {
-      const newId = ++this.currentId;
+      const allIds = [...this.todos.map(t => t.id), ...this.completedTodos.map( c => c.id)];
+      const newId = allIds.length > 0 ? Math.max(...allIds) + 1 : 1;
       this.todos.push({ id: newId, text: newTodo });
+      localStorage.setItem('todos', JSON.stringify(this.todos));
     },
     handlecomplete(todoId, todoText) {
       this.todos = this.todos.filter((t) => t.id !== todoId);
       this.completedTodos.unshift({ id: todoId, text: todoText });
+      localStorage.setItem('todos', JSON.stringify(this.todos));
+      localStorage.setItem('completedTodos', JSON.stringify(this.completedTodos));
     },
     handleDelete(completedId) {
       this.completedTodos = this.completedTodos.filter((c) => c.id !== completedId);
+      localStorage.setItem('completedTodos', JSON.stringify(this.completedTodos));
     },
     handleDeleteAll() {
       this.completedTodos = [];
+      localStorage.setItem('completedTodos', JSON.stringify(this.completedTodos));
     }
   },
 }
