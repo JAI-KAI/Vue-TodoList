@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style>
-html {
-    transition: background-color 0.3s, color 0.3s;
+* {
+    transition: background-color 0.3s, color 0.1s;
 }
 </style>

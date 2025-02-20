@@ -58,6 +58,7 @@ export default {
   opacity: 0;
   transform: translateX(30px) scale(1.1);
 }
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 12px;
   /* 寬度 */
