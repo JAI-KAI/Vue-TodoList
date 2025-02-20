@@ -22,15 +22,15 @@
 
 <script>
 export default {
-    props: ["completedTodos"],
-    methods: {
-        deleteCompleted(completedId) {
-            this.$emit('deleteCompleted', completedId)
-        },
-        deleteAll() {
-            this.$emit('deleteAll');
-        }
-    }
+  props: ["completedTodos"],
+  methods: {
+      deleteCompleted(completedId) {
+          this.$emit('deleteCompleted', completedId)
+      },
+      deleteAll() {
+          this.$emit('deleteAll');
+      }
+  }
 }
 </script>
 <style scoped>
